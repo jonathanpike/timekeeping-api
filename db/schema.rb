@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421184416) do
+ActiveRecord::Schema.define(version: 20160421191251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "time_entries", force: :cascade do |t|
+    t.datetime "time"
+    t.integer  "timecard_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "time_entries", ["timecard_id"], name: "index_time_entries_on_timecard_id", using: :btree
 
   create_table "timecards", force: :cascade do |t|
     t.date     "occurrence"
