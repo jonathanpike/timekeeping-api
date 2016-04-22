@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1, :format => :json do
-      resources :time_entries
-      resources :timecards
+      resources :time_entries, only: [:index, :create, :update, :destroy]
+      resources :timecards, only: [:index, :create, :update, :destroy]
     end
   end
   
