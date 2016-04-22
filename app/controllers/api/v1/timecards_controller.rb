@@ -5,6 +5,11 @@ class Api::V1::TimecardsController < ApplicationController
 			             timecards: cards	}
   end 
   
+  def show
+    card = Timecard.find(params[:id])
+    render json: card, status: :ok
+  end 
+  
   def create
     card = Timecard.create(timecard_params)
     if card.valid?

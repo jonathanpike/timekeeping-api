@@ -5,6 +5,11 @@ class Api::V1::TimeEntriesController < ApplicationController
 			             timeentries: entries	}
   end 
   
+  def show
+    entry = TimeEntry.find(params[:id])
+    render json: entry, status: :ok
+  end 
+  
   def create 
     entry = TimeEntry.create(timeentry_params)
     if entry.valid?
@@ -33,7 +38,10 @@ class Api::V1::TimeEntriesController < ApplicationController
   
   def destroy
     entry = TimeEntry.find(params[:id])
+    card = Timecard.find(entry.timecard_id)
     if entry.destroy
+      card.exception?
+      card.update_attribute(:total_worked_hours, nil) if card.exception == true
       render json: {}, status: :ok
     else 
       render json: {error: "Time Entry could not be deleted."}, status: :unprocessable_entity

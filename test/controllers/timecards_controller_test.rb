@@ -11,6 +11,11 @@ class TimecardsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should get show" do 
+    get :show, id: @card.id
+    assert_response :ok
+  end 
+  
   test "should be able to create" do 
     assert_difference 'Timecard.count' do 
       post :create, timecard: { occurrence: Date.today, 

@@ -13,6 +13,11 @@ class TimeEntriesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should get show" do 
+    get :show, id: @entry.id
+    assert_response :ok
+  end 
+  
   test "should be able to create" do 
     assert_difference 'TimeEntry.count' do 
       post :create, time_entry: { time: DateTime.now, 
@@ -43,6 +48,8 @@ class TimeEntriesControllerTest < ActionController::TestCase
     assert_difference 'TimeEntry.count', -1 do 
       delete :destroy, id: @entry.id
     end 
+    assert @card1.reload.exception == true
+    assert_nil @card1.reload.total_worked_hours
     assert_response :ok
   end 
 end
