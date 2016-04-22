@@ -10,7 +10,8 @@ have the following methods:</p>
 
 <h3>List All Time Cards</h3>
 
-<p>This method allows you to see all of the Time Cards in the database.</p>
+<p>This method allows you to see all of the Time Cards in the database, along with 
+their associated Time Entries (if any).</p>
 
 <p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
 
@@ -22,15 +23,11 @@ have the following methods:</p>
 
 <h3>Show a Single Time Card</h3>
 
-<p>This method allows you to see a single Time Card.</p>
+<p>This method allows you to see a single Time Card and associated Time Entries.</p>
 
-<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/<strong>id</strong>.json</span></p>
 
-<p><strong>Parameters:</strong></p>
-
-<ul>
-  <li>id (integer)</li>
-</ul>
+<p>Replace <strong>id</strong> with the id number of the Time Card you want to see.</p>
 
 <p><strong>Status Codes:</strong></p>
 
@@ -62,12 +59,13 @@ have the following methods:</p>
 
 <p>This method allows you to update an existing Time Card.</p>
 
-<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/<strong>id</strong>.json</span></p>
+
+<p>Replace <strong>id</strong> with the id number of the Time Card you want to update.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-  <li>id (integer)</li>
   <li>timecard[username] (string)</li>
   <li>timecard[occurrence] (date)</li>
 </ul>
@@ -83,13 +81,9 @@ have the following methods:</p>
 
 <p>This method allows you to delete an existing Time Card.</p>
 
-<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/<strong>id</strong>.json</span></p>
 
-<p><strong>Parameters:</strong></p>
-
-<ul>
-  <li>id (integer)</li>
-</ul>
+<p>Replace <strong>id</strong> with the id number of the Time Card you want to delete.</p>
 
 <p><strong>Status Codes:</strong></p>
 
@@ -120,13 +114,9 @@ you want to track.  Once a Time Card has 2 Time Entries, it will automatically c
 
 <p>This method allows you to see a single Time Entry.</p>
 
-<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/<strong>id</strong>.json</span></p>
 
-<p><strong>Parameters:</strong></p>
-
-<ul>
-  <li>id (integer)</li>
-</ul>
+<p>Replace <strong>id</strong> with the id number of the Time Entry you want to see.</p>
 
 <p><strong>Status Codes:</strong></p>
 
@@ -162,12 +152,13 @@ calculated on that Time Card.</p>
 Time Entries on a Time Card, <strong>total hours worked</strong> will be updated on 
 that Time Card.</p>
 
-<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/<strong>id</strong>.json</span></p>
+
+<p>Replace <strong>id</strong> with the id number of the Time Entry you want to update.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-  <li>id (integer)</li>
   <li>time_entry[time] (date time)</li>
   <li>time_entry[timecard_id] (integer)</li>
 </ul>
@@ -185,13 +176,9 @@ that Time Card.</p>
 Time Entries and one is deleted, <strong>total hours worked</strong> will be set 
 to nil.</p>
 
-<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/<strong>id</strong>.json</span></p>
 
-<p><strong>Parameters:</strong></p>
-
-<ul>
-  <li>id (integer)</li>
-</ul>
+<p>Replace <strong>id</strong> with the id number of the Time Entry you want to delete.</p>
 
 <p><strong>Status Codes:</strong></p>
 

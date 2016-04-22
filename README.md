@@ -8,7 +8,7 @@ Time Cards provide a basic structure for keeping track of time entries. Time Car
 
 ### List All Time Cards
 
-This method allows you to see all of the Time Cards in the database.
+This method allows you to see all of the Time Cards in the database, along with their associated Time Entries (if any).
 
 **URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
 
@@ -18,13 +18,11 @@ This method allows you to see all of the Time Cards in the database.
 
 ### Show a Single Time Card
 
-This method allows you to see a single Time Card.
+This method allows you to see a single Time Card and associated Time Entries.
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
 
-**Parameters:**
-
-*   id (integer)
+Replace **id** with the id number of the Time Card you want to see.
 
 **Status Codes:**
 
@@ -50,11 +48,12 @@ This method allows you to create a new Time Card.
 
 This method allows you to update an existing Time Card.
 
-**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
+**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
+
+Replace **id** with the id number of the Time Card you want to update.
 
 **Parameters:**
 
-*   id (integer)
 *   timecard\[username\] (string)
 *   timecard\[occurrence\] (date)
 
@@ -67,11 +66,9 @@ This method allows you to update an existing Time Card.
 
 This method allows you to delete an existing Time Card.
 
-**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
+**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
 
-**Parameters:**
-
-*   id (integer)
+Replace **id** with the id number of the Time Card you want to delete.
 
 **Status Codes:**
 
@@ -96,11 +93,9 @@ This method allows you to see all of the Time Entries in the database.
 
 This method allows you to see a single Time Entry.
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
 
-**Parameters:**
-
-*   id (integer)
+Replace **id** with the id number of the Time Entry you want to see.
 
 **Status Codes:**
 
@@ -126,11 +121,12 @@ This method allows you to create a new Time Entry on an existing Time Card. If t
 
 This method allows you to update an existing Time Entry. If there are 2 existing Time Entries on a Time Card, **total hours worked** will be updated on that Time Card.
 
-**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span>
+**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
+
+Replace **id** with the id number of the Time Entry you want to update.
 
 **Parameters:**
 
-*   id (integer)
 *   time_entry\[time\] (date time)
 *   time_entry\[timecard_id\] (integer)
 
@@ -143,11 +139,9 @@ This method allows you to update an existing Time Entry. If there are 2 existing
 
 This method allows you to delete an existing Time Entry. If the Time Card had 2 Time Entries and one is deleted, **total hours worked** will be set to nil.
 
-**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span>
+**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
 
-**Parameters:**
-
-*   id (integer)
+Replace **id** with the id number of the Time Entry you want to delete.
 
 **Status Codes:**
 
