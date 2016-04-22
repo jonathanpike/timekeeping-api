@@ -2,12 +2,12 @@ class Api::V1::TimecardsController < ApplicationController
   def index
     cards = Timecard.all
     render json: { total: cards.count,
-			             timecards: cards	}
+			             timecards: cards.to_json(:include => :time_entries) }
   end 
   
   def show
     card = Timecard.find(params[:id])
-    render json: card, status: :ok
+    render json: card.to_json(:include => :time_entries), status: :ok
   end 
   
   def create
@@ -18,7 +18,7 @@ class Api::V1::TimecardsController < ApplicationController
       render json: card.errors, 
 			       status: :unprocessable_entity
     end 
-  end 
+  end
   
   def update
     card = Timecard.find(params[:id])
