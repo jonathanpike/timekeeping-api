@@ -11,7 +11,7 @@ class Timecard < ActiveRecord::Base
     
   def calculate_worked_hours
     return if exception
-    time = ((TimeEntry.last.time - TimeEntry.first.time) * 24)
+    time = ((Time.parse(time_entries.last.time.to_s) - Time.parse(time_entries.first.time.to_s)) / 3600)
     update_attribute(:total_worked_hours, time)
   end 
 end
