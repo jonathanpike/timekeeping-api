@@ -38,8 +38,8 @@ This method allows you to create a new Time Card.
 
 **Parameters:**
 
-*   timecard[username] (string)
-*   timecard[occurrence] (date)
+*   timecard\[username\] (string)
+*   timecard\[occurrence\] (date)
 
 **Status Codes:**
 
@@ -55,8 +55,8 @@ This method allows you to update an existing Time Card.
 **Parameters:**
 
 *   id (integer)
-*   timecard[username] (string)
-*   timecard[occurrence] (date)
+*   timecard\[username\] (string)
+*   timecard\[occurrence\] (date)
 
 **Status Codes:**
 
@@ -114,8 +114,8 @@ This method allows you to create a new Time Entry on an existing Time Card. If t
 
 **Parameters:**
 
-*   time_entry[time] (date time)
-*   time_entry[timecard_id] (integer)
+*   time_entry\[time\] (date time)
+*   time_entry\[timecard_id\] (integer)
 
 **Status Codes:**
 
@@ -131,8 +131,8 @@ This method allows you to update an existing Time Entry. If there are 2 existing
 **Parameters:**
 
 *   id (integer)
-*   time_entry[time] (date time)
-*   time_entry[timecard_id] (integer)
+*   time_entry\[time\] (date time)
+*   time_entry\[timecard_id\] (integer)
 
 **Status Codes:**
 
