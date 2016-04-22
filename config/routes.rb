@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root 'static_pages#index'
+  
   namespace :api do
     namespace :v1, :format => :json do
-      resources :time_entries, only: [:index, :create, :update, :destroy]
-      resources :timecards, only: [:index, :create, :update, :destroy]
+      resources :time_entries, only: [:index, :show, :create, :update, :destroy]
+      resources :timecards, only: [:index, :show, :create, :update, :destroy]
     end
   end
   

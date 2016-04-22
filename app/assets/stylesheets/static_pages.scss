@@ -1,0 +1,22 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
+#container {
+  margin: auto;
+  width: 700px;
+}
+
+.verb {
+ background: #f9f2f4;
+ color: #c7254e;
+}
+
+.highlight {
+  background: #d6eaf4;
+  color: #003659;
+}

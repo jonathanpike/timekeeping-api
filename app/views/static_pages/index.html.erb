@@ -1,0 +1,201 @@
+<h1>Timekeeping API Docs</h1>
+
+<p>This is a simple RESTful Rails API for keeping track of your time.  There are 
+2 main elements: <strong>Time Cards</strong> and <strong>Time Entries</strong>.</p>
+
+<h2>Time Cards</h2>
+
+<p>Time Cards provide a basic structure for keeping track of time entries.  Time Cards 
+have the following methods:</p>
+
+<h3>List All Time Cards</h3>
+
+<p>This method allows you to see all of the Time Cards in the database.</p>
+
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+</ul>
+
+<h3>Show a Single Time Card</h3>
+
+<p>This method allows you to see a single Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+</ul>
+
+<h3>Create a Time Card</h3>
+
+<p>This method allows you to create a new Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>timecard[username] (string)</li>
+  <li>timecard[occurrence] (date)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>201:</strong> Created</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
+
+<h3>Update a Time Card</h3>
+
+<p>This method allows you to update an existing Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+  <li>timecard[username] (string)</li>
+  <li>timecard[occurrence] (date)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
+
+<h3>Delete a Time Card</h3>
+
+<p>This method allows you to delete an existing Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
+
+<h2>Time Entries</h2>
+
+<p>Time Entries are added to Time Cards to indicate the start and stop of the period 
+you want to track.  Once a Time Card has 2 Time Entries, it will automatically calculate
+<strong>total hours worked</strong>. Time Entries have the following methods:</p>
+
+<h3>List All Time Entries</h3>
+
+<p>This method allows you to see all of the Time Entries in the database.</p>
+
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+</ul>
+
+<h3>Show a Single Time Entry</h3>
+
+<p>This method allows you to see a single Time Entry.</p>
+
+<p><strong>URL:</strong> <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+</ul>
+
+<h3>Create a Time Entry</h3>
+
+<p>This method allows you to create a new Time Entry on an existing Time Card. If 
+this is the second Time Entry on said Time Card, <strong>total hours worked</strong> will be 
+calculated on that Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>time_entry[time] (date time)</li>
+  <li>time_entry[timecard_id] (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>201:</strong> Created</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
+
+<h3>Update a Time Entry</h3>
+
+<p>This method allows you to update an existing Time Entry.  If there are 2 existing 
+Time Entries on a Time Card, <strong>total hours worked</strong> will be updated on 
+that Time Card.</p>
+
+<p><strong>URL:</strong> <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+  <li>time_entry[time] (date time)</li>
+  <li>time_entry[timecard_id] (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
+
+<h3>Delete a Time Entry</h3>
+
+<p>This method allows you to delete an existing Time Entry. If the Time Card had 2
+Time Entries and one is deleted, <strong>total hours worked</strong> will be set 
+to nil.</p>
+
+<p><strong>URL:</strong> <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span></p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>id (integer)</li>
+</ul>
+
+<p><strong>Status Codes:</strong></p>
+
+<ul>
+  <li><strong>200:</strong> OK</li>
+  <li><strong>422:</strong> Unprocessable Entity</li>
+</ul>
