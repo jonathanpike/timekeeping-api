@@ -10,7 +10,7 @@ Time Cards provide a basic structure for keeping track of time entries. Time Car
 
 This method allows you to see all of the Time Cards in the database, along with their associated Time Entries (if any).
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards</span>
 
 **Status Codes:**
 
@@ -20,7 +20,7 @@ This method allows you to see all of the Time Cards in the database, along with 
 
 This method allows you to see a single Time Card and associated Time Entries.
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**</span>
 
 Replace **id** with the id number of the Time Card you want to see.
 
@@ -32,7 +32,7 @@ Replace **id** with the id number of the Time Card you want to see.
 
 This method allows you to create a new Time Card.
 
-**URL:** <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards.json</span>
+**URL:** <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards</span>
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ This method allows you to create a new Time Card.
 
 This method allows you to update an existing Time Card.
 
-**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
+**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**</span>
 
 Replace **id** with the id number of the Time Card you want to update.
 
@@ -66,7 +66,7 @@ Replace **id** with the id number of the Time Card you want to update.
 
 This method allows you to delete an existing Time Card.
 
-**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**.json</span>
+**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/timecards/**id**</span>
 
 Replace **id** with the id number of the Time Card you want to delete.
 
@@ -83,7 +83,7 @@ Time Entries are added to Time Cards to indicate the start and stop of the perio
 
 This method allows you to see all of the Time Entries in the database.
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries</span>
 
 **Status Codes:**
 
@@ -93,7 +93,7 @@ This method allows you to see all of the Time Entries in the database.
 
 This method allows you to see a single Time Entry.
 
-**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
+**URL:** <span class="verb">GET</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**</span>
 
 Replace **id** with the id number of the Time Entry you want to see.
 
@@ -105,7 +105,7 @@ Replace **id** with the id number of the Time Entry you want to see.
 
 This method allows you to create a new Time Entry on an existing Time Card. If this is the second Time Entry on said Time Card, **total hours worked** will be calculated on that Time Card.
 
-**URL:** <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries.json</span>
+**URL:** <span class="verb">POST</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries</span>
 
 **Parameters:**
 
@@ -121,7 +121,7 @@ This method allows you to create a new Time Entry on an existing Time Card. If t
 
 This method allows you to update an existing Time Entry. If there are 2 existing Time Entries on a Time Card, **total hours worked** will be updated on that Time Card.
 
-**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
+**URL:** <span class="verb">PUT</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**</span>
 
 Replace **id** with the id number of the Time Entry you want to update.
 
@@ -139,7 +139,7 @@ Replace **id** with the id number of the Time Entry you want to update.
 
 This method allows you to delete an existing Time Entry. If the Time Card had 2 Time Entries and one is deleted, **total hours worked** will be set to nil.
 
-**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**.json</span>
+**URL:** <span class="verb">DELETE</span> <span class="highlight">https://timekeeping-api.herokuapp.com/api/v1/time_entries/**id**</span>
 
 Replace **id** with the id number of the Time Entry you want to delete.
 
